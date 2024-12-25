@@ -93,7 +93,7 @@ public class RegistrationScreen extends JFrame {
     }
 
     private void saveUserCredentials() {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("users.txt"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("data/users.txt"))) {
             for (Map.Entry<String, String> entry : userCredentials.entrySet()) {
                 writer.write(entry.getKey() + "," + entry.getValue());
                 writer.newLine();

@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
@@ -126,7 +127,7 @@ public class LoginScreen extends JFrame {
     // Method to load user credentials from a file
     private Map<String, String> loadUserCredentials() {
         Map<String, String> credentials = new HashMap<>();
-        try (BufferedReader reader = new BufferedReader(new FileReader("/src/users.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("data/users.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
