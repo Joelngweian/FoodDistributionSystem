@@ -93,7 +93,7 @@ public class BeneficiaryScreen extends JFrame {
         });
 
         returnButton.addActionListener(e -> {
-            new RoleSelectionScreen(username, foodStore);
+            new RoleSelectionScreen(username, foodStore).showScreen();
             dispose();
         });
 

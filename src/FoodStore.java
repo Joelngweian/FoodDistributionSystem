@@ -10,7 +10,6 @@ public class FoodStore extends JFrame {
 
     public FoodStore(Map<String, Integer> foodWarehouse, String storeName) {
         //System.out.println("FoodStore initialized with warehouse: " + foodWarehouse);
-        //this.foodStore = foodStore;
         this.foodWarehouse = foodWarehouse;
         this.storeName = storeName;
         //this.recordScreen = new RecordScreen(storeName);
@@ -45,7 +44,7 @@ public class FoodStore extends JFrame {
         JButton returnButton = new JButton("Return to Role Selection");
         returnButton.addActionListener(e -> {
             // Pass the foodWarehouse to RoleSelectionScreen
-            new RoleSelectionScreen(storeName, this);
+            new RoleSelectionScreen(storeName, this).showScreen();
             dispose(); // Close the current window
         });
 
@@ -53,7 +52,7 @@ public class FoodStore extends JFrame {
         JButton viewFoodLogButton = new JButton("View Food Distribution Log");
         viewFoodLogButton.addActionListener(e -> {
             dispose(); // Close the current FoodStore window
-            new FoodDistributionLogScreen(storeName, this.foodStore); // Open the Food Distribution Log screen
+            new FoodDistributionLogScreen(storeName, this).showScreen(); // Open the Food Distribution Log screen
         });
 
         // Add the buttons to the south panel

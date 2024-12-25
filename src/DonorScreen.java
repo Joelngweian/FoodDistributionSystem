@@ -161,7 +161,7 @@ public class DonorScreen extends JFrame {
                 return;  // Exit the method if foodstore is null
             }
             // Proceed if foodstore is not null
-            new RoleSelectionScreen(username, foodstore);
+            new RoleSelectionScreen(username, foodstore).showScreen();
             dispose();
         });
 

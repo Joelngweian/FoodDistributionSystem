@@ -9,7 +9,6 @@ import java.util.Map;
 
 public class LoginScreen extends JFrame {
     private Map<String, String> userCredentials;
-    private RoleSelectionScreen roleSelectionScreen;
 
     public LoginScreen() {
         userCredentials = loadUserCredentials(); // Load user data from file
@@ -98,10 +97,7 @@ public class LoginScreen extends JFrame {
                 foodWarehouse.put("Bread", 50);
                 FoodStore foodStore = new FoodStore(foodWarehouse, username);
 
-                if (roleSelectionScreen == null) {
-                    roleSelectionScreen = new RoleSelectionScreen(username, foodStore); // Pass the required objects
-                }
-                roleSelectionScreen.setVisible(true);
+                new RoleSelectionScreen(username, foodStore).showScreen(); // Pass the required objects
                 dispose(); // Close the current window
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid username or password!", "Error", JOptionPane.ERROR_MESSAGE);

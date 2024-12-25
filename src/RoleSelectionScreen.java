@@ -11,7 +11,9 @@ public class RoleSelectionScreen extends JFrame {
     private FoodStore foodStore;  // Store the foodStore object
     private Map<String, Integer> foodWarehouse;
     private FoodDistributionLogScreen logScreen;
-
+    public RoleSelectionScreen()
+    {
+    }
     public RoleSelectionScreen(String username ,FoodStore foodStore ) {
         this.username = username;
         this.foodStore = foodStore;  // Initialize the foodStore object
@@ -21,8 +23,11 @@ public class RoleSelectionScreen extends JFrame {
         {
             throw new IllegalArgumentException("FoodStore instance cannot be null");
         }
-        this.foodWarehouse = foodStore.getFoodWarehouse();
+
         this.logScreen = new FoodDistributionLogScreen(username, foodStore);
+    }
+
+    public void showScreen() {
         // Set up the window properties
         setTitle("Select Role");
         setSize(600, 750); // Increased size for better layout, now fits Record button
@@ -88,7 +93,7 @@ public class RoleSelectionScreen extends JFrame {
                 JOptionPane.showMessageDialog(this, "You selected Food Store");
 
                 // Create and show the FoodStore window
-                new FoodStore(foodStore.getFoodWarehouse(), username);  // Pass warehouse data and username
+                new FoodStore(foodStore.getFoodWarehouse(), username).showScreen();  // Pass warehouse data and username
 
                 // Close the RoleSelectionScreen window
                 dispose(); // Close the current window
@@ -97,7 +102,7 @@ public class RoleSelectionScreen extends JFrame {
 
         recordButton.addActionListener(e -> {
             JOptionPane.showMessageDialog(this, "Record button clicked");
-            new RecordScreen(username); // Navigate to Record Screen
+            new RecordScreen(username).showScreen(); // Navigate to Record Screen
             dispose(); // Close the current window
         });
 

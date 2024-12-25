@@ -82,7 +82,7 @@ public class FoodDistributionLogScreen extends JFrame {
         // Return button action to dispose of the window
         returnButton.addActionListener(e -> {
             dispose();
-            new FoodStore(foodStore.getFoodWarehouse(), currentUser); // Return to the Food Store screen
+            new FoodStore(foodStore.getFoodWarehouse(), currentUser).showScreen(); // Return to the Food Store screen
         });
 
         // Delete button action to delete the selected row

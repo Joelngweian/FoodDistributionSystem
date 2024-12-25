@@ -43,7 +43,7 @@ public class RecordScreen extends JFrame {
 
         // Load the log data into the table
         returnButton.addActionListener(e -> dispose());
-
+        new RoleSelectionScreen().showScreen();
         add(panel);
         setVisible(true);
     }
