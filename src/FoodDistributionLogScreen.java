@@ -99,7 +99,7 @@ public class FoodDistributionLogScreen extends JFrame {
             return;
         }
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("food_distribution_log.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("log/food_distribution_log.txt"))) {
             String line;
             logEntries.clear(); // 清空旧的日志条目
             while ((line = reader.readLine()) != null) {
@@ -148,7 +148,7 @@ public class FoodDistributionLogScreen extends JFrame {
 
     private void rebuildLogFile() {
         // Rebuild the log file from the current table data
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("food_distribution_log.txt"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("log/food_distribution_log.txt"))) {
             for (int i = 0; i < tableModel.getRowCount(); i++) {
                 StringBuilder logEntry = new StringBuilder();
                 for (int j = 0; j < tableModel.getColumnCount(); j++) {
@@ -165,7 +165,7 @@ public class FoodDistributionLogScreen extends JFrame {
     }
 
     public void writeLogToFile(String logEntry) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("food_distribution_log.txt", true))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("log/food_distribution_log.txt", true))) {
             writer.write(logEntry);
             writer.newLine(); // 换行
         } catch (IOException e) {
@@ -174,7 +174,7 @@ public class FoodDistributionLogScreen extends JFrame {
     }
 
     public void recordFoodDistribution(String category, int quantity, String status, String locationTime, boolean isDonation) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("food_distribution_log.txt", true))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("log/food_distribution_log.txt", true))) {
             String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
             String user = this.currentUser;  // 或者其他相关的用户名
             String action = isDonation ? "Donation" : "Distribution";

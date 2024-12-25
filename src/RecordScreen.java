@@ -49,7 +49,7 @@ public class RecordScreen extends JFrame {
     }
 
     private void loadLog() {
-        try (BufferedReader reader = new BufferedReader(new FileReader("user_activity_log.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("log/user_activity_log.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 // Assuming each log entry is separated by a pipe (|), as in the recordUserActivity method
@@ -65,7 +65,7 @@ public class RecordScreen extends JFrame {
     }
 
     public void recordUserActivity(String category, int quantity, boolean isDonation ,  String locationTime) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("user_activity_log.txt", true))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("log/user_activity_log.txt", true))) {
             String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
             String user = this.currentUser;  // 获取当前用户名
             String action = isDonation ? "Donation" : "Distribution";  // 根据是否为捐赠判断动作
