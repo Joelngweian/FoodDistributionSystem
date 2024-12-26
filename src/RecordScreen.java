@@ -42,8 +42,12 @@ public class RecordScreen extends JFrame {
         loadLog();
 
         // Load the log data into the table
-        returnButton.addActionListener(e -> dispose());
-        new RoleSelectionScreen().showScreen();
+        returnButton.addActionListener(e ->
+        {
+            new RoleSelectionScreen().showScreen();
+            dispose();
+        });
+
         add(panel);
         setVisible(true);
     }
