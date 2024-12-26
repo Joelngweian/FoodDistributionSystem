@@ -11,9 +11,9 @@ public class RoleSelectionScreen extends JFrame {
     private FoodStore foodStore;  // Store the foodStore object
     private Map<String, Integer> foodWarehouse;
     private FoodDistributionLogScreen logScreen;
-    public RoleSelectionScreen()
-    {
-    }
+
+    public RoleSelectionScreen() {}
+
     public RoleSelectionScreen(String username ,FoodStore foodStore ) {
         this.username = username;
         this.foodStore = foodStore;  // Initialize the foodStore object

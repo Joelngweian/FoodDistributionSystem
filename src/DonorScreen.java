@@ -109,6 +109,7 @@ public class DonorScreen extends JFrame {
 
                     // 记录捐赠信息到食物分配日志
                     logScreen.recordFoodDistribution(item.getCategory(), item.getQuantity(), "Successful", locationTime, true); // isDonation = true
+                    new RecordScreen(this.username).recordUserActivity(item.getCategory(), item.getQuantity(), true, locationTime);
 
                     // 更新 FoodStore 仓库信息
                     foodstore.updateFoodWarehouse(item.getCategory(), item.getQuantity());
